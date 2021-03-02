@@ -29,5 +29,10 @@ class PageArtikel extends CI_Controller {
 
 	}
 
+	public function page_view($id){}
+	public function page_edit($id){}
+	public function update(){}
+	public function delete(){}
+
 	
 }

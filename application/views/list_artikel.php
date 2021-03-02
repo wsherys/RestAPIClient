@@ -22,10 +22,10 @@
 				<table id="example" class="display" style="width:100%">
 					<thead>
 						<tr>
-							<th style="text-align:center; width:2%;">No</th>
-							<th style="text-align:center;  ">Author</th>
-							<th style="text-align:center;  ">Artikel</th>
-							<th> &nbsp;</th>
+							<th style="text-align:center; width:10%;">No</th>
+							<th style="text-align:center;  width:25%;">Author</th>
+							<th style="text-align:center;  width:25%;">Artikel</th>
+							<th style=" width:10%;"> &nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -35,9 +35,9 @@
 							<td style="text-align:center;"><?= $value['author'] ?></td>
 							<td style="text-align:center;"><?= $value['text'] ?></td>
 							<td style="text-align:center;"> 
-								<a href="">view</a> &nbsp;
-								<a href="">edit</a> &nbsp;
-								<a href="">delete</a> &nbsp;
+								<a href="<?= base_url('/PageArtikel/page_view/'.$value['id']);?>">Detail</a> &nbsp;
+								<a href="<?= base_url('/PageArtikel/page_edit/'.$value['id']);?>">Edit</a> &nbsp;
+								<a onclick="myFunction()" href="<?= base_url('/PageArtikel/delete/'.$value['id']);?>">Delete</a> &nbsp;
 							</td>
 						</tr>
 						<?php } ?>
@@ -47,7 +47,14 @@
 		</div>
 		
 	</body>
-	
+
+	<script>
+	function myFunction() {
+		if(!confirm("Apakah anda yakin ingin hapus?"))
+		event.preventDefault();
+	}
+	</script>
+
 	<script>
     $(document).ready(function(){
       $('#example').DataTable();
